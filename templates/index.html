@@ -1,70 +1,115 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="favicon.ico">
-    <title>Fusion Byte Tutorial</title>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="favicon.ico">
+        <title>Fusion Byte Tutorial</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap theme -->
-    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="css/theme.css" rel="stylesheet">
-  </head>
+        <!-- Bootstrap core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!-- Bootstrap theme -->
+        <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="css/theme.css" rel="stylesheet">
+    </head>
 
-  <body role="document">
+    <body role="document">
 
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="about">About</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+
+        <div class="container theme-showcase" role="main">
+
+            <!-- Main jumbotron for a primary marketing message or call to action -->
+            <div class="jumbotron">
+                <h1>Has Formula1 become too predictable?</h1>
+            </div>
+
+            <p>Here I try to check the validity of complaints about F1 becoming too
+            prepredictable in the recent years. All data from January 1, 1970 to
+            September 6, 2018(including Italian grand prix) considered</p>
+
+
+            <p>For the first chart, I take all the individual race result and see
+            their correlation with the end of the year championship standings. Since
+            points are given out per race and just added over the season, the
+            correlation should be positive. However, a higher value of it suggests
+            moremore predictability(can be seen as drivers finishing at nearly the
+            same positions) and a lower correlation would suggest the regular winners
+            and podium finishers did not end up ahead everyone else.</p>
+
+            <iframe width="500" height="300" scrolling="no" frameborder="no" src="https://fusiontables.google.com/embedviz?containerId=googft-gviz-canvas&amp;q=select+col0%2C+col1+from+1wRsIZ_0wGFVrhnhgiCUKiiMsNGVI_8OioTkEEgu6+order+by+col0+asc&amp;viz=GVIZ&amp;t=SCATTER&amp;rmax=250&amp;uiversion=2&amp;gco_forceIFrame=true&amp;gco_hasLabelsColumn=true&amp;gco_tooltip=%7B%22isHtml%22%3Atrue%7D&amp;tmplt=1&amp;width=500&amp;height=300"></iframe>
+
+            <iframe width="500" height="300" scrolling="no" frameborder="no" src="https://fusiontables.google.com/embedviz?containerId=googft-gviz-canvas&amp;viz=GVIZ&amp;t=LINE_AGGREGATE&amp;isXyPlot=true&amp;bsize=0.0&amp;q=select+col0%2C+col1+from+1LzxVR9ffIwclrZnV1d4SFiLvIIQFUWAteKdI6RsU&amp;qrs=+where+col0+%3E%3D+&amp;qre=+and+col0+%3C%3D+&amp;qe=+order+by+col0+asc&amp;uiversion=2&amp;rstart=1970%2F1%2F1+0%3A0%3A0&amp;rend=2018%2F1%2F12+23%3A1%3A3&amp;gco_forceIFrame=true&amp;gco_hasLabelsColumn=true&amp;width=500&amp;height=300"></iframe>
+
+            <p>
+            As can be seen, the concentration towards the top has increased which would
+            suggest the same drivers winning repeatedly
+            </p>
+
+            <ul>
+                <li> Aggregate correlations over entire year to check how close the
+                    championship was </li>
+                <li> Do a similar analysis for Qualifying which would show performance
+                    difference over 1 lap(I could not figure out how to tackle the
+                    changing formats over the years)</li>
+                <li> Do a similar analysis but with weighted correlation, since
+                    there is lesser interest in a battle for finishing 15th than the
+                    battle for finishing 1st</li>
+            </ul>
+
+
+            <p>
+            For the second chart, I took a count for "How many times did x finish inside
+            top 10 in this year?" and then averaged those values for a year. A higher
+            average would suggest that same drivers are finishing in top 10 and there is
+            less competition. As can be seen, that is the case. (Note that I removed
+            backmarkers data for this). I also normalized the data for the number of
+            races in the given year to count for the bias.
+            </p>
+
+
+            <p>
+            Conclusion: It seems that results today are more predictable. However, an
+            increase in reliability of today's cars is also responsible for this and it
+            remains to be seen how much the reliability aspect contributes to this.
+            </p>
+
+            <h3><a href="https://www.formula1.com/en/results.html/2018/drivers.html">
+                    100% scientific data source</a></h3>
+
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="about">About</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-
-    <div class="container theme-showcase" role="main">
-
-      <!-- Main jumbotron for a primary marketing message or call to action -->
-      <div class="jumbotron">
-	<h1>Will I ever learn web design? Will I finish Byte1 on time?</h1>
-        <p>This is the Fusion Byte of the Data Pipeline class. This
-        page should explain what question you want to answer and use
-        the visualization tools provided by Google Fusion Table to
-        answer it. </p>
-      </div>
+        </div> 
 
 
-<iframe width="500" height="300" scrolling="no" frameborder="no"
-	src="https://www.google.com/fusiontables/embedviz?q=select+col16%3E%3E0+from+1ymz3EtGdi4qKGMl5AxEFXtTlgk3tKi8iCpjTzvM&amp;viz=MAP&amp;h=false&amp;lat=38.071424981566125&amp;lng=-85.15232666015623&amp;t=1&amp;z=9&amp;l=col16%3E%3E0&amp;y=3&amp;tmplt=3&amp;hml=TWO_COL_LAT_LNG"></iframe>
-
-      </div> <!-- /page-header -->
-    </div> <!-- /container -->
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery-1.11.3.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/docs.min.js"></script>
-  </body>
+        <!-- Bootstrap core JavaScript
+            ================================================== -->
+            <!-- Placed at the end of the document so the pages load faster -->
+            <script src="js/jquery-1.11.3.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <!-- <script src="js/docs.min.js"></script> -->
+    </body>
 </html>
